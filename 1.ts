@@ -7,12 +7,12 @@
 //null , undefined
 
 var a:boolean=true;
-
 var b:number=2;
 //b='23423';
 b=12.5698;
-
 let c:string='1331'
+
+
 
 //定义数组 可以约束数组项 的类型 有两种方式
 //方式一
@@ -25,6 +25,8 @@ let arr4:Array<string>=['11','aefa','aeff'];
  
 //方式三 元祖类型 （tuple） 属于数组类型的一种 定义数组多种的数据类型
 let arr5:[string,number,boolean]=['234',123,true];
+
+
 
 /*
 枚举类型（enum）
@@ -65,10 +67,14 @@ console.log(Color.red); //0
 console.log(Color.yellow); //1
 console.log(d); //6
 
+
+
 //任意类型 any  可用于一些dom对象的声明（因为没有object类型，具体类型无法表达清楚）
 let e:any=123;
 e='str'; //类型可以修改
 console.log(e);
+
+
 
 //undefined 其他（never类型）数据类型的子类型
 let ff:number; 
@@ -92,6 +98,7 @@ j=null;
 console.log(j)  //null
 
 
+
 //void类型  typescript中表示没有任何类型 一般用于定义方法时 方法没有返回值
 function fn():number{
     console.log('有数字返回的函数');
@@ -102,6 +109,8 @@ function run():void{
     console.log('没有返回的函数')
 }
 run()
+
+
 
 //never 类型 是其他类型（包含null,undefind）的子类型，代表从不会出现的值 基本用不到
 var k:never;

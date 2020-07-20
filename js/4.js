@@ -15,6 +15,7 @@ function printLabel(labelInfo) {
 //printLabel({name:'张三'});  //错误的写法
 printLabel({ label: '张三' }); //正确的写法
 //无法批量化对传入参数进行约束
+//接口：行为和动作的规范 对批量方法进行约束
 console.log("--------------------------------------------------------------------------");
 function showName(name) {
     console.log(name.firstName + name.secondName);
@@ -29,6 +30,7 @@ showName({
     firstName: '楼',
     secondName: '云溪',
 }); //这样写 要求 传参只包含 firstName,secondName  
+console.log("--------------------------------------------------------------------------");
 console.log("--------------------------------------------------------------------------");
 //原生js封装的ajax 
 function ajax(config) {

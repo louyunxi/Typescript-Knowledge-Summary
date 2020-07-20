@@ -15,11 +15,10 @@ function printLabel(labelInfo:{label:string}):void {
 //printLabel({name:'张三'});  //错误的写法
 printLabel({label:'张三'});  //正确的写法
 //无法批量化对传入参数进行约束
-console.log("--------------------------------------------------------------------------");
 
 //接口：行为和动作的规范 对批量方法进行约束
 
-
+console.log("--------------------------------------------------------------------------");
 
 //属性类接口
 interface Fullname{ //传入对象的约束
@@ -41,14 +40,15 @@ showName({
     //age:29  //报错 Object literal may only specify known properties, and 'age' does not exist in type 'Fullname'.
 }); //这样写 要求 传参只包含 firstName,secondName  
 
+console.log("--------------------------------------------------------------------------");
+
 //接口：可选属性
 interface Full{
     first:string;
     second?:string;
 }
+
 console.log("--------------------------------------------------------------------------");
-
-
 
 //ts 使用接口 封装ajax
 interface Config{

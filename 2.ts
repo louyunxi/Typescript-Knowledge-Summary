@@ -1,4 +1,7 @@
 //ts中 约束 方法 的形参 和 输入
+
+
+
 //es5定义函数两种方式
 function fna(){ //函数声明法
     return 23;
@@ -16,7 +19,7 @@ let fnd=function(a:string,b:boolean):string{   //匿名函数
 }
 console.log(fnd('fage',false));
 
-
+console.log("--------------------------------------------------------------------------");
 
 //可选参数 (默认指定了参数类型 参数都是必传的)
 function fne(name:string,age?:number):string{
@@ -37,7 +40,7 @@ function fnf(name:string,like?:string,think?:string):string{
 console.log(fnf('fage','aa'))
 //可选参数 后面不可再有必填参数 可多个连续可选参数
 
-
+console.log("--------------------------------------------------------------------------");
 
 //剩余参数 约束类型
 //es6 function fn(a,...d){}
@@ -50,7 +53,7 @@ function sum(n:number,...other:number[]):number{
 }
 console.log(sum(1,2,3,4,5,6));  //21
 
-
+console.log("--------------------------------------------------------------------------");
 
 //函数重载
 //java中方法的重载：重载指的是两个或者两个以上同名函数，但它们的参数不一样，这时会出现函数重载的情况。

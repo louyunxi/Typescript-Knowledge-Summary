@@ -20,6 +20,7 @@ console.log(sha1('name','lisi'));
 //error TS2322: Type '(key: string, value: number) => string' is not assignable to type 'encrypt'.
 //Types of parameters 'value' and 'value' are incompatible. */
 
+console.log("--------------------------------------------------------------------------");
 
 //可索引接口
 var arra:number[]=[2342,235325];
@@ -36,39 +37,66 @@ interface UserObj{
 }
 var obj:UserObj={name:'111',age:'111'};
 
+console.log("--------------------------------------------------------------------------");
 
-
-//类类型接口  约束类  和抽象类 有点相似
-interface Animal{
+//类类型接口  
+//约束类  和抽象类 有点相似
+interface Animals{
     name:string;
     eat(str:string):void;
 }
 //定义了约束类的接口 要求实现它的类 要有name属性，和eat方法
 //implements不是继承 是实现
-class Dogs implements Animal{
+class Dogs implements Animals{
     name:string;
     constructor(name:string){
         this.name=name;
     }
-    eat(){
-        return `${this.name}吃狗粮`;
+    eat(how:string){
+        console.log(`吃狗粮 ${how}`);
     }
 }
 var dogs=new Dogs('小黑');
-dogs.eat();
+dogs.eat('躺着吃');
 
-class Cats implements Animal{
+class Cats implements Animals{
     name:string;
     constructor(name:string){
-
-        this.name=name;
-
+        this.name=name; 
     }
-    eat(food:string){
-
-        console.log(this.name+'吃'+food);
+    eat(){
+        console.log(this.name+'吃');
     }
 }
 
 var ccc=new Cats('小花');
-ccc.eat('老鼠');
+ccc.eat();
+
+console.log("--------------------------------------------------------------------------");
+
+//接口的继承
+interface Aaaa{
+    name:string;
+    eat():void;
+}
+interface Bbbb extends Aaaa{
+    age:number;
+    work(str:string):string;
+}
+class Bbbbb implements Bbbb{
+    public name:string;
+    public age:number;
+    constructor(name:string,age:number){
+        this.name=name;
+        this.age=age;
+    }
+    eat(){
+        console.log(this.name+this.age+'吃东西');
+    }
+    work(str:string){
+        return str;
+    }
+}
+var bbbbbb=new Bbbbb('fage',29);
+bbbbbb.eat();
+console.log(bbbbbb.work('工作')); 

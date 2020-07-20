@@ -7,7 +7,7 @@ typeScript中的类
    抽象类 多态 
 */
 
-
+console.log("--------------------------------------------------------------------------");
 
 //es5的类
 /* function Person(name,age){
@@ -28,7 +28,7 @@ p.run();
 p.work();
 Person.who(); */
 
-
+console.log("--------------------------------------------------------------------------");
 
 //ts 的类
 class Personplus{
@@ -51,7 +51,7 @@ console.log(pp.getName());  //张三
 pp.setName('李四')
 console.log(pp.name);  //李四
  
-
+console.log("--------------------------------------------------------------------------");
 
 //类的继承
 class Webcoder extends Personplus{
@@ -69,6 +69,7 @@ let webcoder=new Webcoder('程序猿');
 console.log(webcoder.run());    //程序猿---run起来 子类的
 webcoder.work();    //程序猿工作啦
 
+console.log("--------------------------------------------------------------------------");
 
 //类的修饰符
 //typescript里面定义属性的时候给我们提供了 三种修饰符
@@ -113,7 +114,7 @@ let aab=new Aa('fage',29,'play','coder');
 //console.log(aab.like);  //like 是protected属性 子类不可访问  error TS2445: Property 'like' is protected and only accessible within class 'A' and its subclasses.
 //console.log(aab.work);  //work 是私有属性 子类不可访问 error TS2341: Property 'work' is private and only accessible within class 'A'.
 
-
+console.log("--------------------------------------------------------------------------");
 
 //静态方法
 class Cc{
@@ -138,7 +139,7 @@ cc.run();   //我是c 在运动
 console.log(Cc.staticfn()); //喜欢ts 静态方法
 console.log(Cc.like);   //喜欢ts
 
-
+console.log("--------------------------------------------------------------------------");
 
 //多态: 父类定义一个方法不去实现，让继承它的子类去实现  每一个子类有不同的表现
 class Animal {
@@ -178,7 +179,7 @@ var cat=new Cat('小猫咪');
 console.log(cat.eat());
 cat.say();
 
-
+console.log("--------------------------------------------------------------------------");
 
 //抽象类和抽象方法      用来定义标准
 //typescript中的抽象类：它是提供其他类继承的基类，不能直接被实例化。

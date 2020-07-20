@@ -16,6 +16,7 @@ var fnd = function (a, b) {
     return "" + a + b;
 };
 console.log(fnd('fage', false));
+console.log("--------------------------------------------------------------------------");
 //可选参数 (默认指定了参数类型 参数都是必传的)
 function fne(name, age) {
     if (age) {
@@ -34,6 +35,7 @@ function fnf(name, like, think) {
 }
 console.log(fnf('fage', 'aa'));
 //可选参数 后面不可再有必填参数 可多个连续可选参数
+console.log("--------------------------------------------------------------------------");
 //剩余参数 约束类型
 //es6 function fn(a,...d){}
 function sum(n) {
@@ -48,6 +50,7 @@ function sum(n) {
     return num;
 }
 console.log(sum(1, 2, 3, 4, 5, 6)); //21
+console.log("--------------------------------------------------------------------------");
 function getInfo(name, age) {
     if (age) {
         return '我叫：' + name + '我的年龄是' + age;

@@ -4,6 +4,7 @@
 //枚举类型 enum
 //never 类型
 //任意类型 any
+//Unknown 类型
 //null , undefined
 
 var a:boolean=true;
@@ -22,7 +23,7 @@ let arr2:string[]=['123','asef'];
 //方式二
 let arr3:Array<number>=[22,33,44];
 let arr4:Array<string>=['11','aefa','aeff'];
- 
+
 //方式三 元祖类型 （tuple） 属于数组类型的一种 定义数组多种的数据类型
 let arr5:[string,number,boolean]=['234',123,true];
 
@@ -49,11 +50,11 @@ let arr5:[string,number,boolean]=['234',123,true];
 enum payStatus {
     nopay=0,
     pay=1,
-    success=2
+    success='success'
 }
 var f:payStatus=payStatus.pay; //定义一个变量 它的类型是 枚举类型 payStatus
 console.log(f);  //1
-console.log(payStatus.success); //2
+console.log(payStatus.success); //success
 enum Color {
     red,
     yellow,
@@ -62,10 +63,14 @@ enum Color {
 } 
 //如果没有赋值 默认就是为索引值 如上一个有值 则以上一个为基准
 //如果当前值未赋值 上一个赋值了 上一个必须为number类型
-var d:Color=Color.orange;
 console.log(Color.red); //0
+//数字枚举相对字符串枚举多了 “反向映射”
+console.log(Color[1]); //yellow
 console.log(Color.yellow); //1
+
+var d:Color=Color.orange;
 console.log(d); //6
+console.log("--------------------------------------------------------------------------");
 
 
 
@@ -76,15 +81,33 @@ console.log(e);
 
 
 
+//Unknown 类型
+//所有类型都可以赋值给 any，所有类型也都可以赋值给 unknown。这使得 unknown 成为 TypeScript 类型系统的另一种顶级类型（另一种是 any）
+let vv:unknown;
+vv = true; // OK
+vv = 42; // OK
+vv = "Hello World"; // OK
+vv = []; // OK
+vv = {}; // OK
+
+//unknown 类型只能被赋值给 any 类型和 unknown 类型本身
+let val1: unknown;
+let val2: unknown = val1; // OK
+let val3: any = val1; // OK
+//let val4: boolean = val1; // Error  Type 'unknown' is not assignable to type 'boolean'.
+
+
 //undefined 其他（never类型）数据类型的子类型
 let ff:number; 
 //console.log(ff); //定义变量但是 未赋值 会报错
+
 let gg:undefined;  //输出undefined 正确
 
 let hh:number | undefined;
 console.log(hh) //undefined
 hh=123;
 console.log(hh) //123
+
 
 var i:null;
 //num=123; //声明了null 类型 不可以赋值其他值 只能赋值为null
@@ -113,8 +136,35 @@ run()
 
 
 //never 类型 是其他类型（包含null,undefind）的子类型，代表从不会出现的值 基本用不到
-var k:never;
-//k=null; k不可以赋任何值
-k=(()=>{
-    throw new Error('错误'); //抛出异常 还可以用 any string
-})()
+//never 类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型
+// 返回never的函数必须存在无法达到的终点
+function error(message: string): never {
+    throw new Error(message);
+}
+function infiniteLoop(): never {
+    while (true) {}
+}
+//never 应用场景
+type Foo = string | number;
+function controlFlowAnalysisWithNever(foo: Foo) {
+  if (typeof foo === "string") {
+    // 这里 foo 被收窄为 string 类型
+  } else if (typeof foo === "number") {
+    // 这里 foo 被收窄为 number 类型
+  } else {
+    // foo 在这里是 never
+    const check: never = foo;
+  }
+}
+
+
+
+//TypeScript 断言
+    //类型断言有两种形式：
+    //“尖括号” 语法
+    let someValue: any = "this is a string";
+    let strLength: number = (<string>someValue).length;
+    //as 语法
+    let someValue1: any = "this is a string";
+    let strLength1: number = (someValue1 as string).length;
+

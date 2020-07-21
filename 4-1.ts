@@ -100,3 +100,16 @@ class Bbbbb implements Bbbb{
 var bbbbbb=new Bbbbb('fage',29);
 bbbbbb.eat();
 console.log(bbbbbb.work('工作')); 
+
+//类可以继承 同时也实现接口
+class Ccc extends Bbbbb implements Bbbb{
+    constructor(name:string,age:number){
+        super(name,age);
+    }
+    coder():void{
+        console.log('敲代码')
+    }
+}
+var cca=new Ccc('小强',29);
+console.log(cca.work('工作啥'));
+cca.coder();

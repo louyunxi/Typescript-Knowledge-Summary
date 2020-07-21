@@ -1,4 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var md5 = function (key, value) {
     return 'md5-' + key + value;
 };
@@ -62,3 +75,17 @@ var Bbbbb = /** @class */ (function () {
 var bbbbbb = new Bbbbb('fage', 29);
 bbbbbb.eat();
 console.log(bbbbbb.work('工作'));
+//类可以继承 同时也实现接口
+var Ccc = /** @class */ (function (_super) {
+    __extends(Ccc, _super);
+    function Ccc(name, age) {
+        return _super.call(this, name, age) || this;
+    }
+    Ccc.prototype.coder = function () {
+        console.log('敲代码');
+    };
+    return Ccc;
+}(Bbbbb));
+var cca = new Ccc('小强', 29);
+console.log(cca.work('工作啥'));
+cca.coder();

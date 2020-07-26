@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/louyunxi/Typescript-Knowledge-Summary/issues"
   },
-  "homepage": "https://github.com/louyunxi/Typescript-Knowledge-Summary#readme"
+  "homepage": "https://github.com/louyunxi/Typescript-Knowledge-Summary#readme",
+  "devDependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.5"
+  }
 }

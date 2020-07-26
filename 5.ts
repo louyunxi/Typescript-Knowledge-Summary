@@ -1,4 +1,4 @@
-//泛型类  类型的变量
+//泛型的定义  类型的变量
 /*
 
 泛型：软件工程中，我们不仅要创建一致的定义良好的API，同时也要考虑可重用性。 组件不仅能够支持当前的数据类型，同时也能支持未来的数据类型，这在创建大型系统时为你提供了十分灵活的功能。
@@ -6,6 +6,9 @@
 在像C#和Java这样的语言中，可以使用泛型来创建可重用的组件，一个组件可以支持多种类型的数据。 这样用户就可以以自己的数据类型来使用组件。
 通俗理解：泛型就是解决 类 接口 方法的复用性、以及对不特定数据类型的支持(类型校验)
 */
+
+
+//泛型函数
 //传入的参数和返回的参数一致 
 function getData<T>(value:T):T{
     return value;
@@ -18,7 +21,7 @@ console.log(getData('sin'));
 console.log(getData(234));
 
 
-//类的泛型
+//泛型类
 class MinClas<T>{
     public list:T[]=[];
     add(value:T):void{
@@ -46,3 +49,25 @@ m2.add('c');
 m2.add('a');
 m2.add('v');
 console.log(m2.min())
+
+
+//泛型接口
+//第一种方式
+interface ConfigFn{
+    <T>(value:T,name:string):T
+}
+var fnaa:ConfigFn=function<T>(value:T,name:string):T{
+    return value;
+}
+console.log(fnaa<string>('324','345'))
+console.log(fnaa<boolean>(true,'345'))
+
+//第二种方式
+interface Configb<T>{
+    (value:T,name:number):T
+}
+function fnafe<T>(value:T,like:number):T{
+    return value;
+}
+var fnbb:Configb<string>=fnafe;
+console.log(fnbb('第二种方式 赋值给新的变量',323432));    //ste

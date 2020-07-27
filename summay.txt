@@ -1,0 +1,56 @@
+基础
+    boolean , number , string , array
+    //元祖类型 tuple
+    //枚举类型 enum
+    //never 类型
+    //任意类型 any
+    //Unknown 类型
+    //null , undefined
+    let arr:number[]=[1,2,3,4];
+    let arr3:Array<number>=[22,33,44];
+    let arr5:[string,number,boolean]=['234',123,true];
+    enum Color {
+        red,
+        yellow,
+        blue=5,
+        orange
+    }
+    let e:any=123;  //顶级类型
+    let vv:unknown; //顶级类型
+    vv = true;
+    function error(message: string): never {
+        throw new Error(message);
+    }
+    //断言
+    let someValue: any = "this is a string";
+    let strLength: number = (<string>someValue).length;
+    let strLength1: number = (someValue1 as string).length;
+
+
+函数
+    剩余参数 约束类型
+    function sum(n:number,...other:number[]):number{
+    可选参数
+    重载
+
+类
+    类的定义
+    继承
+   类里面的修饰符
+   静态属性 静态方法
+   多态: 父类定义一个方法不去实现，让继承它的子类去实现  每一个子类有不同的表现
+   抽象类 多态 
+   abstract class People{
+        public name:string;
+        constructor(name:string){
+            this.name=name;
+        }
+        abstract eat():any;  //抽象方法不包含具体实现并且必须在派生类中实现。
+    }
+
+接口
+    属性类接口
+    函数类型接口
+    可索引接口
+    类接口
+    接口扩展

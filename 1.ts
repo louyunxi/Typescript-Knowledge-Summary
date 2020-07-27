@@ -98,7 +98,7 @@ let val3: any = val1; // OK
 
 
 //undefined 其他（never类型）数据类型的子类型
-let ff:number; 
+let ff:number;
 //console.log(ff); //定义变量但是 未赋值 会报错
 
 let gg:undefined;  //输出undefined 正确

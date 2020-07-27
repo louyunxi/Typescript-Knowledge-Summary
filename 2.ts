@@ -7,7 +7,7 @@ function fna(){ //函数声明法
     return 23;
 }
 const fnb=function(){    //匿名函数
-    console.log('匿名函数')
+    console.log('匿名函数');
 }
 //ts 定义函数 也是这两种
 function fnc(a:string,b:number):string{ //函数声明法

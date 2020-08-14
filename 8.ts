@@ -10,7 +10,7 @@
 */
 //修改ts中对装饰器的报错 https://www.jianshu.com/p/4c2bc81b75f0  
 
-
+//222222
 //类装饰器：普通装饰器 （无法传参)
 function logClass(params:any){
     console.log(params);    //Function: Person7]
